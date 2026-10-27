@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Alex Chen Portfolio</title>
-<meta name="description" content="Alex Chen — software engineer building fast, reliable web apps and developer tools.">
+<title>Eric Chan Portfolio</title>
+<meta name="description" content="Eric Chan: software engineer and game developer, M.S. in Artificial Intelligence candidate at DePaul University.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -152,24 +152,35 @@
     .log li { grid-template-columns: 1fr; gap: 6px; }
     section { padding-block: 56px; }
   }
-</style>
 
+  /* Résumés + education */
+  .resumes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .resume { display: grid; gap: 12px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+  .resume p { color: var(--muted); }
+  .resume .ctas { margin-top: 4px; }
+  .project.todo { background: transparent; border-style: dashed; }
+  .course-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; margin-top: 36px; }
+  .course-groups div { display: grid; gap: 12px; align-content: start; }
+  @media (max-width: 760px) { .resumes, .course-groups { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 <!-- ============================================================
-     HOW TO EDIT: search this file for "EDIT" to find every piece
-     of sample text you should replace with your own.
+     HOW TO EDIT: search this file for "EDIT" to find the spots
+     you may still want to change (projects and links especially).
      ============================================================ -->
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#top"><span>~/</span>Eric Chan</a> <!-- EDIT: your name -->
+    <a class="logo" href="#top"><span>~/</span>eric-chan</a>
     <nav aria-label="Main">
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#resumes">Résumés</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -181,28 +192,30 @@
   <section class="hero">
     <div class="wrap">
       <div class="hero-copy">
-        <span class="status"><i aria-hidden="true"></i> Open to full-time roles · Chicago or remote</span> <!-- EDIT -->
-        <h1>I build fast, reliable software for <em>the web</em>.</h1> <!-- EDIT: your one-line pitch -->
-        <p class="lede">I'm Alex, a full-stack engineer who likes turning slow, messy workflows into clean tools people actually enjoy using.</p> <!-- EDIT -->
+        <span class="status"><i aria-hidden="true"></i> Open to software &amp; game dev roles · Chicago, IL</span>
+        <h1>I build software, and I design <em>games</em>.</h1>
+        <p class="lede">I'm Eric, an M.S. in Artificial Intelligence candidate at DePaul with a game design degree from UC Irvine. I write back-end systems and design gameplay that keeps people coming back.</p>
         <div class="ctas">
-          <a class="btn primary" href="#projects">See my work</a>
-          <a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub ↗</a> <!-- EDIT: your GitHub -->
+          <a class="btn primary" href="#resumes">View my résumés</a>
+          <a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub ↗</a> <!-- EDIT: your GitHub URL -->
         </div>
       </div>
       <div class="term" aria-label="Terminal summary">
         <div class="term-bar" aria-hidden="true"><b></b><b></b><b></b></div>
 <pre><span class="p">$</span> whoami
-alex-chen <span class="c"># full-stack engineer</span>
+eric-chan <span class="c"># software engineer + game dev</span>
 
 <span class="p">$</span> cat stack.json
 {
-  <span class="k">"frontend"</span>: ["React", "TypeScript"],
-  <span class="k">"backend"</span>:  ["Node", "Python", "Postgres"],
-  <span class="k">"cloud"</span>:    ["AWS", "Docker"]
+  <span class="k">"languages"</span>: ["Python", "Java", "C++",
+                "C#", "SQL", "HTML"],
+  <span class="k">"focus"</span>:     ["AI", "back end",
+                "gameplay systems"],
+  <span class="k">"tools"</span>:     ["GitHub", "Jira"]
 }
 
-<span class="p">$</span> git log --oneline | wc -l
-1,284 <span class="c"># commits this year</span></pre> <!-- EDIT: the stack and numbers -->
+<span class="p">$</span> cat results.log
++18.5% user engagement <span class="c"># Skillwaze</span></pre>
       </div>
     </div>
   </section>
@@ -213,18 +226,17 @@ alex-chen <span class="c"># full-stack engineer</span>
       <div class="sec-head"><span class="label">About</span><h2>A little about me</h2></div>
       <div class="about-grid">
         <div>
-          <!-- EDIT: 2–3 short paragraphs. Who you are, what you care about, what you want next. -->
-          <p>I started coding by automating spreadsheets at my first job, and I never stopped. Today I work across the stack, from designing APIs and database schemas to polishing the last pixel of a React component.</p>
-          <p>I care most about performance, accessibility, and code that the next person can read. I like small teams, short feedback loops, and shipping often.</p>
-          <p>Outside of work I contribute to open source, mentor at a local coding bootcamp, and spend too long tuning my keyboard.</p>
+          <p>I'm working toward a Master of Science in Artificial Intelligence at DePaul University, building on a background in back-end programming and program design. I'm comfortable across several languages and always looking for hands-on experience with new technology.</p>
+          <p>On the game side, I studied Interactive Media and Game Design at UC Irvine. I like designing gameplay systems, refining how a game feels to play, and turning rough creative ideas into mechanics that are fun and intuitive.</p>
+          <p>I'm detail-oriented and organized, and I work well on teams. As an Eagle Scout I led 20 volunteers through an 8-month community project, and I bring that same planning to every project I take on.</p>
         </div>
         <div>
           <ul class="facts">
-            <!-- EDIT: quick facts -->
             <li><span>Based in</span><span>Chicago, IL</span></li>
-            <li><span>Experience</span><span>4 years</span></li>
-            <li><span>Education</span><span>B.S. Computer Science</span></li>
-            <li><span>Focus</span><span>Web apps &amp; dev tools</span></li>
+            <li><span>Studying</span><span>M.S. Artificial Intelligence, DePaul</span></li>
+            <li><span>Graduating</span><span>2028 (expected)</span></li>
+            <li><span>B.A.</span><span>Interactive Media &amp; Game Design, UC Irvine</span></li>
+            <li><span>Focus</span><span>Software &amp; games</span></li>
           </ul>
         </div>
       </div>
@@ -236,15 +248,14 @@ alex-chen <span class="c"># full-stack engineer</span>
     <div class="wrap">
       <div class="sec-head"><span class="label">Skills</span><h2>What I work with</h2></div>
       <div class="skills">
-        <!-- EDIT: keep the groups, change the tools -->
         <div><span class="label">Languages</span>
-          <ul class="chips"><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>SQL</li><li>Go</li></ul></div>
-        <div><span class="label">Frontend</span>
-          <ul class="chips"><li>React</li><li>Next.js</li><li>Tailwind</li><li>Vite</li><li>Testing Library</li></ul></div>
-        <div><span class="label">Backend &amp; data</span>
-          <ul class="chips"><li>Node.js</li><li>FastAPI</li><li>PostgreSQL</li><li>Redis</li><li>GraphQL</li></ul></div>
-        <div><span class="label">Tooling &amp; cloud</span>
-          <ul class="chips"><li>Git</li><li>Docker</li><li>AWS</li><li>GitHub Actions</li><li>Linux</li></ul></div>
+          <ul class="chips"><li>Python</li><li>Java</li><li>C++</li><li>C#</li><li>SQL</li><li>HTML</li></ul></div>
+        <div><span class="label">Software engineering</span>
+          <ul class="chips"><li>AI applications</li><li>System design</li><li>Full-stack development</li><li>SQL databases</li><li>Data management</li><li>Testing &amp; debugging</li></ul></div>
+        <div><span class="label">Game development</span>
+          <ul class="chips"><li>Character gameplay</li><li>Gameplay systems</li><li>Storytelling</li><li>Cross-platform development</li><li>Player psychology</li><li>Multiplayer systems</li></ul></div>
+        <div><span class="label">Tools</span>
+          <ul class="chips"><li>GitHub</li><li>Jira</li><li>Microsoft Office</li></ul></div>
       </div>
     </div>
   </section>
@@ -253,29 +264,29 @@ alex-chen <span class="c"># full-stack engineer</span>
   <section id="projects">
     <div class="wrap">
       <div class="sec-head"><span class="label">Projects</span><h2>Selected work</h2>
-        <p>Each project lists what problem it solved, how I built it, and the result.</p></div>
+        <p>Highlights from my professional work, school, and personal projects.</p></div>
       <div class="projects">
-        <!-- EDIT: replace each project. Copy an <article> block to add more. -->
         <article class="project featured">
-          <div class="meta"><span class="label">Featured · 2026</span><span class="label">Full-stack</span></div>
-          <h3>Shiftly: scheduling app for small restaurants</h3>
-          <p>Managers were building weekly schedules in group chats. I built a web app where staff set availability and the app suggests a fair schedule in one click. Built with Next.js, a Postgres database, and a constraint solver in Python.</p>
-          <span class="impact">→ Used by 40+ restaurants · cut scheduling time from 3 hrs to 15 min</span>
-          <div class="links"><a href="#" target="_blank" rel="noopener">Live demo ↗</a><a href="#" target="_blank" rel="noopener">Source code ↗</a></div>
+          <div class="meta"><span class="label">Featured · Summer 2024</span><span class="label">Game design · Data</span></div>
+          <h3>Gamification features at Skillwaze</h3>
+          <p>I studied user engagement data to find where people were dropping off, then designed and tested seven new gamification features with the product and engineering teams. Each mechanic was tied to a specific user or business goal, like retention or daily return visits.</p>
+          <span class="impact">→ 7 features shipped and tested · +18.5% user engagement</span>
+          <div class="links"><a href="#experience">See the full role ↓</a></div>
         </article>
-        <article class="project">
-          <div class="meta"><span class="label">2025</span><span class="label">Dev tool</span></div>
-          <h3>diffwatch CLI</h3>
-          <p>A command-line tool that flags risky database migrations before they reach production. Written in Go with a plugin system for custom rules.</p>
-          <span class="impact">→ 1.2k GitHub stars</span>
+        <!-- EDIT: replace these two cards with real projects. Remove the "todo" class when you do. -->
+        <article class="project todo">
+          <div class="meta"><span class="label">Software</span><span class="label">Add a project</span></div>
+          <h3>Your software or AI project</h3>
+          <p>Describe a project from school or on your own: the problem it solved, the languages and tools you used, and what you learned.</p>
+          <span class="impact">→ Add a result, like users, accuracy, or speed</span>
           <div class="links"><a href="#" target="_blank" rel="noopener">Source code ↗</a></div>
         </article>
-        <article class="project">
-          <div class="meta"><span class="label">2025</span><span class="label">Data / frontend</span></div>
-          <h3>Transit Pulse dashboard</h3>
-          <p>A real-time map of bus delays built from public city transit data. React front end, a FastAPI service, and Redis caching to keep updates under a second.</p>
-          <span class="impact">→ 95+ Lighthouse performance score</span>
-          <div class="links"><a href="#" target="_blank" rel="noopener">Live demo ↗</a><a href="#" target="_blank" rel="noopener">Source code ↗</a></div>
+        <article class="project todo">
+          <div class="meta"><span class="label">Game</span><span class="label">Add a project</span></div>
+          <h3>Your game project</h3>
+          <p>Describe a game you designed or built: the genre, your role, the engine, and the mechanic you're proudest of.</p>
+          <span class="impact">→ Add a result, like playtesters or a game jam placing</span>
+          <div class="links"><a href="#" target="_blank" rel="noopener">Play it ↗</a></div>
         </article>
       </div>
     </div>
@@ -286,41 +297,101 @@ alex-chen <span class="c"># full-stack engineer</span>
     <div class="wrap">
       <div class="sec-head"><span class="label">Experience</span><h2>Where I've worked</h2></div>
       <ol class="log" reversed>
-        <!-- EDIT: newest first. Use numbers to show results. -->
         <li>
-          <div class="when"><span class="hash">a3f9c1e</span><br>2024 — now</div>
+          <div class="when"><span class="hash">a3f9c1e</span><br>Oct 2022 — Jun 2025</div>
           <div class="what">
-            <h3>Software Engineer</h3>
-            <span class="org">Northwind Logistics · Chicago</span>
+            <h3>SAT Tutor</h3>
+            <span class="org">Summer SAT · Irvine, CA</span>
             <ul>
-              <li>Rebuilt the shipment tracking page in React, cutting load time by 60%.</li>
-              <li>Designed a REST API used by 3 internal teams and 2 partner companies.</li>
-              <li>Set up automated testing in CI, reducing production bugs by about a third.</li>
+              <li>Helped students raise their SAT scores by 100–200 points on average with targeted practice and personalized study plans.</li>
+              <li>Analyzed practice-test results so students could spend their study time on the areas with the biggest payoff.</li>
+              <li>Created custom lesson plans and practice materials matched to question type, difficulty, and each student's performance.</li>
             </ul>
           </div>
         </li>
         <li>
-          <div class="when"><span class="hash">7be20d4</span><br>2022 — 2024</div>
+          <div class="when"><span class="hash">7be20d4</span><br>Jun 2024 — Sep 2024</div>
           <div class="what">
-            <h3>Junior Developer</h3>
-            <span class="org">Brightline Studio · Remote</span>
+            <h3>Gamification Intern</h3>
+            <span class="org">Skillwaze · San Ramon, CA</span>
             <ul>
-              <li>Built and shipped 12 client websites with Next.js and a headless CMS.</li>
-              <li>Created a shared component library that halved new-project setup time.</li>
+              <li>Designed and tested 7 new gamification features, raising user engagement by 18.5%.</li>
+              <li>Reviewed engagement data to spot trends and find areas to improve user retention.</li>
+              <li>Worked with multiple teams to align game mechanics with user and business goals.</li>
             </ul>
           </div>
         </li>
         <li>
-          <div class="when"><span class="hash">1c04f88</span><br>2018 — 2022</div>
+          <div class="when"><span class="hash">1c04f88</span><br>Sep 2012 — May 2019</div>
           <div class="what">
-            <h3>B.S. Computer Science</h3>
-            <span class="org">University of Illinois</span>
+            <h3>Eagle Scout</h3>
+            <span class="org">Boy Scouts of America · San Ramon, CA</span>
             <ul>
-              <li>Teaching assistant for Data Structures. Hackathon winner, 2021.</li>
+              <li>Led a team of 20 volunteers on a community service project totaling 200–250 volunteer hours.</li>
+              <li>Ran an 8-month project from proposal to completion, coordinating volunteers, materials, logistics, and timelines.</li>
+              <li>Planned and supervised troop trips, following safety protocols and resolving conflicts.</li>
             </ul>
           </div>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <div class="sec-head"><span class="label">Education</span><h2>Where I've studied</h2></div>
+      <ol class="log" reversed>
+        <li>
+          <div class="when">Expected 2028</div>
+          <div class="what">
+            <h3>M.S. in Artificial Intelligence</h3>
+            <span class="org">DePaul University · Chicago, IL</span>
+          </div>
+        </li>
+        <li>
+          <div class="when">Jun 2025</div>
+          <div class="what">
+            <h3>Bachelor's in Interactive Media and Game Design</h3>
+            <span class="org">University of California, Irvine · Irvine, CA</span>
+          </div>
+        </li>
+        <li>
+          <div class="when">May 2022</div>
+          <div class="what">
+            <h3>Associate's in Computer Science</h3>
+            <span class="org">Diablo Valley College · Walnut Creek, CA</span>
+          </div>
+        </li>
+      </ol>
+      <div class="course-groups">
+        <div><span class="label">Software coursework</span>
+          <ul class="chips"><li>Object-Oriented Programming</li><li>Databases &amp; Analytics</li><li>Applied Algorithms &amp; Structures</li><li>Computer Engineering</li><li>Assembly Language</li><li>Project Management</li></ul></div>
+        <div><span class="label">Game coursework</span>
+          <ul class="chips"><li>Programming for Games</li><li>Multiplayer Systems</li><li>Storytelling &amp; World Building</li><li>Visual Design Fundamentals</li><li>Roleplay &amp; Improvisational Play</li><li>Data Analytics</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RÉSUMÉS -->
+  <section id="resumes">
+    <div class="wrap">
+      <div class="sec-head"><span class="label">Résumés</span><h2>Pick the one that fits</h2>
+        <p>I keep two versions of my résumé, one for software engineering roles and one for game design roles.</p></div>
+      <div class="resumes">
+        <article class="resume">
+          <span class="label">PDF · 1 page</span>
+          <h3>Software Engineer résumé</h3>
+          <p>AI, system design, full-stack development, SQL databases, and testing.</p>
+          <div class="ctas"><a class="btn primary" href="Eric_Chan_Resume_Software.pdf" target="_blank" rel="noopener">Open résumé ↗</a></div>
+        </article>
+        <article class="resume">
+          <span class="label">PDF · 1 page</span>
+          <h3>Video Game Designer résumé</h3>
+          <p>Gameplay systems, character mechanics, storytelling, and player psychology.</p>
+          <div class="ctas"><a class="btn primary" href="Eric_Chan_Resume_Game.pdf" target="_blank" rel="noopener">Open résumé ↗</a></div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -329,15 +400,14 @@ alex-chen <span class="c"># full-stack engineer</span>
     <div class="wrap contact">
       <span class="label">Contact</span>
       <h2>Let's build something.</h2>
-      <p>I'm currently looking for full-time engineering roles. The fastest way to reach me is email.</p>
+      <p>I'm looking for software engineering and game development roles and internships. The fastest way to reach me is email.</p>
       <div class="email-row">
-        <span class="email" id="email">you@example.com</span> <!-- EDIT: your email -->
+        <span class="email" id="email">chaneric022@gmail.com</span>
         <button class="btn" id="copy-email" type="button">Copy email</button>
       </div>
       <div class="socials">
-        <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub ↗</a>       <!-- EDIT -->
+        <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub ↗</a>           <!-- EDIT -->
         <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn ↗</a> <!-- EDIT -->
-        <a href="#" target="_blank" rel="noopener">Résumé (PDF) ↗</a>                                <!-- EDIT -->
       </div>
     </div>
   </section>
@@ -345,7 +415,7 @@ alex-chen <span class="c"># full-stack engineer</span>
 
 <footer>
   <div class="wrap">
-    <span>© <span id="year">2026</span> Alex Chen</span> <!-- EDIT -->
+    <span>© <span id="year">2026</span> Eric Chan</span>
     <span>Built with plain HTML &amp; CSS</span>
   </div>
 </footer>
