@@ -29,7 +29,7 @@ window.ERIC_BOT = {
     "What languages does he know?",
     "Tell me about his experience",
     "Where did he study?",
-    "Can I see his résumé?",
+    "Can I see his resume?",
     "How do I contact him?"
   ],
 
@@ -133,13 +133,13 @@ window.ERIC_BOT = {
       id: "games",
       keywords: ["game", "games", "game dev", "game development", "game design", "game designer", "gameplay", "unity", "unreal", "video game", "gaming", "mechanics", "level design"],
       answer: "Eric studied Interactive Media and Game Design at UC Irvine. He focuses on gameplay systems, character mechanics, storytelling, and player psychology, and he's taken courses in Programming for Games and Multiplayer Systems. At Skillwaze he applied game design to a real product and raised engagement by 18.5%.",
-      links: [{ label: "Game designer résumé", href: "Eric_Chan_Resume_Game.pdf" }]
+      links: [{ label: "Game designer resume", href: "Eric_Chan_Resume_Game.pdf" }]
     },
     {
       id: "software",
       keywords: ["software", "software engineer", "software engineering", "developer", "back end", "backend", "full stack", "full-stack", "system design", "database", "databases"],
       answer: "As a software engineer, Eric works on back-end programming, system design, SQL databases, and full-stack development, mainly in Python, Java, and C++. He's adding AI to that toolkit through his master's at DePaul.",
-      links: [{ label: "Software résumé", href: "Eric_Chan_Resume_Software.pdf" }]
+      links: [{ label: "Software resume", href: "Eric_Chan_Resume_Software.pdf" }]
     },
     {
       id: "projects",
@@ -149,17 +149,17 @@ window.ERIC_BOT = {
     },
     {
       id: "resume",
-      keywords: ["resume", "résumé", "cv", "pdf", "download"],
-      answer: "Eric has two résumés, one for each kind of role:",
+      keywords: ["resume", "cv", "pdf", "download"],
+      answer: "Eric has two resumes, one for each kind of role:",
       links: [
-        { label: "Software Engineer résumé", href: "Eric_Chan_Resume_Software.pdf" },
-        { label: "Game Designer résumé", href: "Eric_Chan_Resume_Game.pdf" }
+        { label: "Software Engineer resume", href: "Eric_Chan_Resume_Software.pdf" },
+        { label: "Game Designer resume", href: "Eric_Chan_Resume_Game.pdf" }
       ]
     },
     {
       id: "contact",
       keywords: ["contact", "email", "reach", "get in touch", "message him", "talk to him", "linkedin", "connect", "phone", "call"],
-      answer: "The best way to reach Eric is email: chaneric022@gmail.com. His phone number is on his résumé.",
+      answer: "The best way to reach Eric is email: chaneric022@gmail.com. His phone number is on his resume.",
       links: [{ label: "Go to Contact", href: "#contact" }]
     },
     {

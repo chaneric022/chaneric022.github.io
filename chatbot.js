@@ -81,7 +81,7 @@
         if (w === "assembly") return "Yes, Eric took a course in Assembly Language. His main languages are " + KNOWN.join(", ") + ".";
         var NAMES = { javascript: "JavaScript", typescript: "TypeScript", php: "PHP", css: "CSS", golang: "Go", gdscript: "GDScript", matlab: "MATLAB", r: "R" };
         var name = NAMES[w] || (w.charAt(0).toUpperCase() + w.slice(1));
-        return name + " isn't on Eric's résumé. The languages he works with are " + KNOWN.join(", ") + ", and he's always eager to pick up new ones.";
+        return name + " isn't on Eric's resume. The languages he works with are " + KNOWN.join(", ") + ", and he's always eager to pick up new ones.";
       }
     }
     return null;
