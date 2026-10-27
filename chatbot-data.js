@@ -133,7 +133,7 @@ window.ERIC_BOT = {
     {
       id: "games",
       keywords: ["game", "games", "game dev", "game development", "game design", "game designer", "gameplay", "unity", "unreal", "video game", "gaming", "mechanics", "level design"],
-      answer: "Eric studied Interactive Media and Game Design at UC Irvine. He focuses on gameplay systems, character mechanics, storytelling, and player psychology, and he's taken courses in Programming for Games and Multiplayer Systems. At Skillwaze he applied game design to a real product and raised engagement by 18.5%.",
+      answer: "Eric studied Interactive Media and Game Design at UC Irvine. He focuses on gameplay systems, character mechanics, storytelling, and player psychology, and he's taken courses in Programming for Games and Multiplayer Systems. He helped build the team game Into the Light, and at Skillwaze he applied game design to a real product and raised engagement by 18.5%.",
       links: [{ label: "Game designer resume", href: "Eric_Chan_Resume_Game.pdf" }]
     },
     {
@@ -145,8 +145,17 @@ window.ERIC_BOT = {
     {
       id: "projects",
       keywords: ["project", "projects", "portfolio", "built", "made", "work samples", "demo"],
-      answer: "You're actually speaking to one right now! But one of his featured project is the gamification work at Skillwaze: 7 new features, designed and tested with several teams, that raised engagement by 18.5%. You'll find more in the Projects section of this page.",
+      answer: "You're actually speaking to one right now! His other featured projects include the gamification work at Skillwaze, where 7 new features raised engagement by 18.5%, and Into the Light, a team game where he helped design core features, balance gameplay, and create characters. You'll find more in the Projects section of this page.",
       links: [{ label: "See projects", href: "#projects" }]
+    },
+    {
+      id: "intothelight",
+      keywords: ["into the light", "into the light game", "capstone", "gdim", "video", "trailer", "his game", "game project", "game he made", "game he worked on", "balance", "balancing", "character design", "characters"],
+      answer: "Into the Light is Eric's capstone game for UC Irvine's GDIM 167 course, built with a team. He helped design and implement its core gameplay features, tuned the game's balance so it stayed challenging but fair, and contributed to the conception of its characters.",
+      links: [
+        { label: "Watch the video", href: "https://www.youtube.com/watch?v=RrNsYFPFeYs" },
+        { label: "See projects", href: "#projects" }
+      ]
     },
     {
       id: "resume",

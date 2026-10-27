@@ -122,6 +122,12 @@
   .project p { color: var(--muted); }
   .impact { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
   .links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.95rem; }
+  .project.has-shot { grid-template-rows: auto auto auto 1fr auto auto; }
+  .shot { position: relative; display: block; border-radius: 8px; overflow: hidden; border: 1px solid var(--line); background: #3d3d3d; }
+  .shot img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 5 / 4; object-fit: cover; object-position: center 40%; transition: transform .3s; }
+  .shot:hover img { transform: scale(1.03); }
+  .play { position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: color-mix(in srgb, var(--bg) 82%, transparent); color: var(--fg); font: 500 0.82rem var(--font-body); backdrop-filter: blur(4px); }
+  .play::before { content: ""; width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 8px; border-color: transparent transparent transparent var(--accent); }
 
   /* Experience — commit log */
   .log { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
@@ -274,19 +280,23 @@ eric-chan <span class="c"># software engineer + game dev</span>
           <div class="links"><a href="#experience">See the full role ↓</a></div>
         </article>
         <!-- EDIT: replace these two cards with real projects. Remove the "todo" class when you do. -->
+        <article class="project has-shot">
+          <div class="meta"><span class="label">Game · Capstone</span><span class="label">Team project</span></div>
+          <a class="shot" href="https://www.youtube.com/watch?v=RrNsYFPFeYs" target="_blank" rel="noopener" aria-label="Watch the Into the Light video on YouTube">
+            <img src="into-the-light.jpg" alt="A glowing white humanoid figure walking through a dark, empty space in Into the Light" width="838" height="798" loading="lazy">
+            <span class="play">Watch the video</span>
+          </a>
+          <h3>Into the Light</h3>
+          <p>My capstone game for UC Irvine's GDIM 167 course, built with a team. I helped design and implement core gameplay features, tuned the game's balance so it stayed challenging but fair, and contributed to the conception of its characters.</p>
+          <span class="impact">→ Core features · game balance · character concepts</span>
+          <div class="links"><a href="https://www.youtube.com/watch?v=RrNsYFPFeYs" target="_blank" rel="noopener">Watch on YouTube ↗</a></div>
+        </article>
         <article class="project todo">
           <div class="meta"><span class="label">Software</span><span class="label">Add a project</span></div>
           <h3>Your software or AI project</h3>
           <p>Describe a project from school or on your own: the problem it solved, the languages and tools you used, and what you learned.</p>
           <span class="impact">→ Add a result, like users, accuracy, or speed</span>
           <div class="links"><a href="#" target="_blank" rel="noopener">Source code ↗</a></div>
-        </article>
-        <article class="project todo">
-          <div class="meta"><span class="label">Game</span><span class="label">Add a project</span></div>
-          <h3>Your game project</h3>
-          <p>Describe a game you designed or built: the genre, your role, the engine, and the mechanic you're proudest of.</p>
-          <span class="impact">→ Add a result, like playtesters or a game jam placing</span>
-          <div class="links"><a href="#" target="_blank" rel="noopener">Play it ↗</a></div>
         </article>
       </div>
     </div>
