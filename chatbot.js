@@ -147,6 +147,8 @@
     ".ebot-links a,.ebot-chips button{font:500 .82rem var(--font-body,system-ui,sans-serif);padding:6px 11px;border-radius:999px;border:1px solid var(--line,#2a2e3d);background:transparent;color:var(--accent,#f0a860);text-decoration:none;cursor:pointer}" +
     ".ebot-chips button{color:var(--fg,#e6e8ef)}" +
     ".ebot-links a:hover,.ebot-chips button:hover{border-color:var(--accent,#f0a860)}" +
+    ".ebot-sugg{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;padding:10px 12px 2px;border-top:1px solid var(--line,#2a2e3d);scrollbar-width:thin}" +
+    ".ebot-sugg button{flex:none;white-space:nowrap}" +
     ".ebot-typing{align-self:flex-start;color:var(--muted,#9095a8);font-size:.85rem;font-family:var(--font-mono,monospace)}" +
     ".ebot-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line,#2a2e3d)}" +
     ".ebot-form input{flex:1;min-width:0;padding:10px 12px;border-radius:8px;border:1px solid var(--line,#2a2e3d);background:var(--bg,#12141c);color:var(--fg,#e6e8ef);font:inherit;font-size:16px}" +
@@ -229,27 +231,22 @@
     log.appendChild(row);
     scrollDown();
   }
-  function addSuggestions() {
-    var old = log.querySelector(".ebot-chips");
-    if (old) old.remove();
-    var row = el("div", "ebot-chips");
-    DATA.suggestions.forEach(function (s) {
-      var b = el("button", null, s);
-      b.type = "button";
-      b.addEventListener("click", function () { ask(s); });
-      row.appendChild(b);
-    });
-    log.appendChild(row);
-    scrollDown();
-  }
+  // Suggestions stay pinned above the text box the whole time
+  var sugg = el("div", "ebot-chips ebot-sugg");
+  sugg.setAttribute("aria-label", "Suggested questions");
+  DATA.suggestions.forEach(function (q) {
+    var b = el("button", null, q);
+    b.type = "button";
+    b.addEventListener("click", function () { ask(q); });
+    sugg.appendChild(b);
+  });
+  panel.insertBefore(sugg, form);
 
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var busy = false;
   function ask(question) {
     question = question.trim();
     if (!question || busy) return;
-    var chips = log.querySelector(".ebot-chips");
-    if (chips) chips.remove();
     addMessage(question, "user");
     input.value = "";
     var reply = respond(question);
@@ -261,7 +258,6 @@
       typing.remove();
       addMessage(reply.text, "bot");
       addLinks(reply.links);
-      if (reply.suggest) addSuggestions();
       busy = false;
       input.focus();
     }, reduceMotion ? 0 : 450 + Math.min(reply.text.length * 3, 600));
@@ -272,7 +268,7 @@
     panel.hidden = !open;
     launch.setAttribute("aria-expanded", String(open));
     if (open) {
-      if (!started) { started = true; addMessage(DATA.welcome, "bot"); addSuggestions(); }
+      if (!started) { started = true; addMessage(DATA.welcome, "bot"); }
       input.focus();
     } else {
       launch.focus();
