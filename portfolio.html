@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alex Chen Portfolio</title>
+<meta name="description" content="Alex Chen — software engineer building fast, reliable web apps and developer tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: one narrow reading column, a terminal-card hero, projects as a 2-up grid, experience as a commit-log timeline. */
+  :root {
+    color-scheme: dark;
+    --bg: #12141c;          /* blue-tinted ink */
+    --surface: #1a1d28;     /* raised panels */
+    --line: #2a2e3d;        /* hairlines */
+    --fg: #e6e8ef;          /* body text */
+    --muted: #9095a8;       /* secondary text */
+    --accent: #f0a860;      /* sodium-lamp amber */
+    --accent-2: #8fb8ff;    /* cool link blue for code tokens */
+    --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    --step-0: 1rem; --step-1: 1.25rem; --step-2: 1.6rem; --step-3: 2.2rem; --step-4: clamp(2.6rem, 7vw, 4.4rem);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font-family: var(--font-body); font-size: 16px; line-height: 1.65;
+  }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .wrap {
+    max-width: 960px; margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; text-wrap: balance; margin: 0; }
+  h2 { font-size: var(--step-3); font-weight: 700; }
+  h3 { font-size: var(--step-1); font-weight: 700; }
+  p { margin: 0; max-width: 65ch; }
+  .label {
+    font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  /* Header */
+  header.top {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  .top .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; padding-block: 14px; }
+  .logo { font-family: var(--font-mono); font-weight: 500; color: var(--fg); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 0; padding: 0; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+  nav a:hover { color: var(--fg); }
+
+  section { padding-block: 72px; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: 0; }
+  .sec-head { display: grid; gap: 10px; margin-bottom: 36px; }
+
+  /* Hero */
+  .hero { padding-block: 72px 64px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+  .hero h1 { font-size: var(--step-4); font-weight: 800; letter-spacing: -0.02em; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero-copy { display: grid; gap: 22px; min-width: 0; }
+  .lede { font-size: var(--step-1); color: var(--muted); }
+  .status { display: inline-flex; gap: 10px; align-items: center; font-family: var(--font-mono); font-size: 0.85rem; color: var(--fg); }
+  .status i { width: 8px; height: 8px; border-radius: 50%; background: #5fd38d; box-shadow: 0 0 0 4px color-mix(in srgb, #5fd38d 20%, transparent); }
+  .ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 8px;
+    font: 500 0.95rem var(--font-body); text-decoration: none; cursor: pointer;
+    border: 1px solid var(--line); background: transparent; color: var(--fg);
+  }
+  .btn:hover { border-color: var(--muted); }
+  .btn.primary { background: var(--accent); color: #1b1408; border-color: var(--accent); }
+  .btn.primary:hover { filter: brightness(1.08); }
+
+  .term {
+    min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+    font-family: var(--font-mono); font-size: 0.85rem; box-shadow: 0 24px 60px -30px #000;
+  }
+  .term-bar { display: flex; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  .term-bar b { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+  .term pre { margin: 0; padding: 18px; overflow-x: auto; line-height: 1.7; color: var(--fg); }
+  .term .p { color: var(--accent); }
+  .term .k { color: var(--accent-2); }
+  .term .c { color: var(--muted); }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; }
+  .about-grid > div { display: grid; gap: 16px; align-content: start; min-width: 0; }
+  .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .facts li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .facts span:first-child { color: var(--muted); }
+  .facts span:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
+  .skills div { display: grid; gap: 12px; align-content: start; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+  .chips li { font-family: var(--font-mono); font-size: 0.8rem; padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--fg); }
+
+  /* Projects */
+  .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .project {
+    display: grid; grid-template-rows: auto auto 1fr auto auto; gap: 14px;
+    padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    transition: border-color .2s, transform .2s;
+  }
+  .project:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); transform: translateY(-2px); }
+  .project.featured { grid-column: 1 / -1; }
+  .project .meta { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .project p { color: var(--muted); }
+  .impact { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
+  .links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.95rem; }
+
+  /* Experience — commit log */
+  .log { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  .log li { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .log li:last-child { border-bottom: 1px solid var(--line); }
+  .log .when { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .log .hash { color: var(--accent); }
+  .log .what { display: grid; gap: 8px; min-width: 0; }
+  .log .org { color: var(--muted); font-size: 0.95rem; }
+  .log ul { margin: 0; padding-left: 18px; color: var(--fg); }
+
+  /* Contact */
+  .contact { display: grid; gap: 24px; }
+  .contact h2 { font-size: var(--step-4); font-weight: 800; letter-spacing: -0.02em; }
+  .email-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .email {
+    font-family: var(--font-mono); font-size: var(--step-1); padding: 10px 16px; border-radius: 8px;
+    background: var(--surface); border: 1px solid var(--line); user-select: all; overflow-wrap: anywhere;
+  }
+  .socials { display: flex; flex-wrap: wrap; gap: 24px; }
+
+  footer { padding-block: 32px; color: var(--muted); font-size: 0.85rem; font-family: var(--font-mono); }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+  @media (max-width: 760px) {
+    .hero .wrap, .about-grid { grid-template-columns: 1fr; gap: 36px; }
+    .projects { grid-template-columns: 1fr; }
+    .log li { grid-template-columns: 1fr; gap: 6px; }
+    section { padding-block: 56px; }
+  }
+</style>
+
+</head>
+<body>
+<!-- ============================================================
+     HOW TO EDIT: search this file for "EDIT" to find every piece
+     of sample text you should replace with your own.
+     ============================================================ -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top"><span>~/</span>Eric Chan</a> <!-- EDIT: your name -->
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="status"><i aria-hidden="true"></i> Open to full-time roles · Chicago or remote</span> <!-- EDIT -->
+        <h1>I build fast, reliable software for <em>the web</em>.</h1> <!-- EDIT: your one-line pitch -->
+        <p class="lede">I'm Alex, a full-stack engineer who likes turning slow, messy workflows into clean tools people actually enjoy using.</p> <!-- EDIT -->
+        <div class="ctas">
+          <a class="btn primary" href="#projects">See my work</a>
+          <a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub ↗</a> <!-- EDIT: your GitHub -->
+        </div>
+      </div>
+      <div class="term" aria-label="Terminal summary">
+        <div class="term-bar" aria-hidden="true"><b></b><b></b><b></b></div>
+<pre><span class="p">$</span> whoami
+alex-chen <span class="c"># full-stack engineer</span>
+
+<span class="p">$</span> cat stack.json
+{
+  <span class="k">"frontend"</span>: ["React", "TypeScript"],
+  <span class="k">"backend"</span>:  ["Node", "Python", "Postgres"],
+  <span class="k">"cloud"</span>:    ["AWS", "Docker"]
+}
+
+<span class="p">$</span> git log --oneline | wc -l
+1,284 <span class="c"># commits this year</span></pre> <!-- EDIT: the stack and numbers -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head"><span class="label">About</span><h2>A little about me</h2></div>
+      <div class="about-grid">
+        <div>
+          <!-- EDIT: 2–3 short paragraphs. Who you are, what you care about, what you want next. -->
+          <p>I started coding by automating spreadsheets at my first job, and I never stopped. Today I work across the stack, from designing APIs and database schemas to polishing the last pixel of a React component.</p>
+          <p>I care most about performance, accessibility, and code that the next person can read. I like small teams, short feedback loops, and shipping often.</p>
+          <p>Outside of work I contribute to open source, mentor at a local coding bootcamp, and spend too long tuning my keyboard.</p>
+        </div>
+        <div>
+          <ul class="facts">
+            <!-- EDIT: quick facts -->
+            <li><span>Based in</span><span>Chicago, IL</span></li>
+            <li><span>Experience</span><span>4 years</span></li>
+            <li><span>Education</span><span>B.S. Computer Science</span></li>
+            <li><span>Focus</span><span>Web apps &amp; dev tools</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head"><span class="label">Skills</span><h2>What I work with</h2></div>
+      <div class="skills">
+        <!-- EDIT: keep the groups, change the tools -->
+        <div><span class="label">Languages</span>
+          <ul class="chips"><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>SQL</li><li>Go</li></ul></div>
+        <div><span class="label">Frontend</span>
+          <ul class="chips"><li>React</li><li>Next.js</li><li>Tailwind</li><li>Vite</li><li>Testing Library</li></ul></div>
+        <div><span class="label">Backend &amp; data</span>
+          <ul class="chips"><li>Node.js</li><li>FastAPI</li><li>PostgreSQL</li><li>Redis</li><li>GraphQL</li></ul></div>
+        <div><span class="label">Tooling &amp; cloud</span>
+          <ul class="chips"><li>Git</li><li>Docker</li><li>AWS</li><li>GitHub Actions</li><li>Linux</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head"><span class="label">Projects</span><h2>Selected work</h2>
+        <p>Each project lists what problem it solved, how I built it, and the result.</p></div>
+      <div class="projects">
+        <!-- EDIT: replace each project. Copy an <article> block to add more. -->
+        <article class="project featured">
+          <div class="meta"><span class="label">Featured · 2026</span><span class="label">Full-stack</span></div>
+          <h3>Shiftly: scheduling app for small restaurants</h3>
+          <p>Managers were building weekly schedules in group chats. I built a web app where staff set availability and the app suggests a fair schedule in one click. Built with Next.js, a Postgres database, and a constraint solver in Python.</p>
+          <span class="impact">→ Used by 40+ restaurants · cut scheduling time from 3 hrs to 15 min</span>
+          <div class="links"><a href="#" target="_blank" rel="noopener">Live demo ↗</a><a href="#" target="_blank" rel="noopener">Source code ↗</a></div>
+        </article>
+        <article class="project">
+          <div class="meta"><span class="label">2025</span><span class="label">Dev tool</span></div>
+          <h3>diffwatch CLI</h3>
+          <p>A command-line tool that flags risky database migrations before they reach production. Written in Go with a plugin system for custom rules.</p>
+          <span class="impact">→ 1.2k GitHub stars</span>
+          <div class="links"><a href="#" target="_blank" rel="noopener">Source code ↗</a></div>
+        </article>
+        <article class="project">
+          <div class="meta"><span class="label">2025</span><span class="label">Data / frontend</span></div>
+          <h3>Transit Pulse dashboard</h3>
+          <p>A real-time map of bus delays built from public city transit data. React front end, a FastAPI service, and Redis caching to keep updates under a second.</p>
+          <span class="impact">→ 95+ Lighthouse performance score</span>
+          <div class="links"><a href="#" target="_blank" rel="noopener">Live demo ↗</a><a href="#" target="_blank" rel="noopener">Source code ↗</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head"><span class="label">Experience</span><h2>Where I've worked</h2></div>
+      <ol class="log" reversed>
+        <!-- EDIT: newest first. Use numbers to show results. -->
+        <li>
+          <div class="when"><span class="hash">a3f9c1e</span><br>2024 — now</div>
+          <div class="what">
+            <h3>Software Engineer</h3>
+            <span class="org">Northwind Logistics · Chicago</span>
+            <ul>
+              <li>Rebuilt the shipment tracking page in React, cutting load time by 60%.</li>
+              <li>Designed a REST API used by 3 internal teams and 2 partner companies.</li>
+              <li>Set up automated testing in CI, reducing production bugs by about a third.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="when"><span class="hash">7be20d4</span><br>2022 — 2024</div>
+          <div class="what">
+            <h3>Junior Developer</h3>
+            <span class="org">Brightline Studio · Remote</span>
+            <ul>
+              <li>Built and shipped 12 client websites with Next.js and a headless CMS.</li>
+              <li>Created a shared component library that halved new-project setup time.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="when"><span class="hash">1c04f88</span><br>2018 — 2022</div>
+          <div class="what">
+            <h3>B.S. Computer Science</h3>
+            <span class="org">University of Illinois</span>
+            <ul>
+              <li>Teaching assistant for Data Structures. Hackathon winner, 2021.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap contact">
+      <span class="label">Contact</span>
+      <h2>Let's build something.</h2>
+      <p>I'm currently looking for full-time engineering roles. The fastest way to reach me is email.</p>
+      <div class="email-row">
+        <span class="email" id="email">you@example.com</span> <!-- EDIT: your email -->
+        <button class="btn" id="copy-email" type="button">Copy email</button>
+      </div>
+      <div class="socials">
+        <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub ↗</a>       <!-- EDIT -->
+        <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn ↗</a> <!-- EDIT -->
+        <a href="#" target="_blank" rel="noopener">Résumé (PDF) ↗</a>                                <!-- EDIT -->
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Alex Chen</span> <!-- EDIT -->
+    <span>Built with plain HTML &amp; CSS</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  (function () {
+    var btn = document.getElementById("copy-email");
+    var email = document.getElementById("email");
+    btn.addEventListener("click", function () {
+      var text = email.textContent.trim();
+      function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = "Copy email"; }, 1800); }
+      function selectIt() {
+        var r = document.createRange(); r.selectNodeContents(email);
+        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+        done("Selected, press Ctrl+C");
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done("Copied"); }, selectIt);
+      } else { selectIt(); }
+    });
+  })();
+</script>
+</body>
+</html>
