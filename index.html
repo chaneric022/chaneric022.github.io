@@ -125,13 +125,13 @@
 
   /* Experience — commit log */
   .log { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
-  .log li { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); }
-  .log li:last-child { border-bottom: 1px solid var(--line); }
+  .log > li { display: grid; grid-template-columns: 140px 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .log > li:last-child { border-bottom: 1px solid var(--line); }
   .log .when { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
   .log .hash { color: var(--accent); }
   .log .what { display: grid; gap: 8px; min-width: 0; }
   .log .org { color: var(--muted); font-size: 0.95rem; }
-  .log ul { margin: 0; padding-left: 18px; color: var(--fg); }
+  .log ul { margin: 0; padding-left: 18px; color: var(--fg); display: grid; gap: 6px; max-width: 72ch; }
 
   /* Contact */
   .contact { display: grid; gap: 24px; }
@@ -149,7 +149,7 @@
   @media (max-width: 760px) {
     .hero .wrap, .about-grid { grid-template-columns: 1fr; gap: 36px; }
     .projects { grid-template-columns: 1fr; }
-    .log li { grid-template-columns: 1fr; gap: 6px; }
+    .log > li { grid-template-columns: 1fr; gap: 6px; }
     section { padding-block: 56px; }
   }
 
@@ -196,8 +196,8 @@
         <h1>I build software, and I design <em>games</em>.</h1>
         <p class="lede">I'm Eric, an M.S. in Artificial Intelligence candidate at DePaul with a game design degree from UC Irvine. I write back-end systems and design gameplay that keeps people coming back.</p>
         <div class="ctas">
-          <a class="btn primary" href="#resumes">View my resumes</a>
-          <a class="btn" href="https://github.com/chaneric022" target="_blank" rel="noopener">GitHub ↗</a> <!-- EDIT: your GitHub URL -->
+          <a class="btn primary" href="#resumes">View my résumés</a>
+          <a class="btn" href="https://github.com/your-username" target="_blank" rel="noopener">GitHub ↗</a> <!-- EDIT: your GitHub URL -->
         </div>
       </div>
       <div class="term" aria-label="Terminal summary">
@@ -376,20 +376,20 @@ eric-chan <span class="c"># software engineer + game dev</span>
   <!-- RÉSUMÉS -->
   <section id="resumes">
     <div class="wrap">
-      <div class="sec-head"><span class="label">Resumes</span><h2>Pick the one that fits</h2>
-        <p>I keep two versions of my resume, one for software engineering roles and one for game design roles.</p></div>
+      <div class="sec-head"><span class="label">Résumés</span><h2>Pick the one that fits</h2>
+        <p>I keep two versions of my résumé, one for software engineering roles and one for game design roles.</p></div>
       <div class="resumes">
         <article class="resume">
           <span class="label">PDF · 1 page</span>
-          <h3>Software Engineer resume</h3>
+          <h3>Software Engineer résumé</h3>
           <p>AI, system design, full-stack development, SQL databases, and testing.</p>
-          <div class="ctas"><a class="btn primary" href="Eric_Chan_Resume_Software.pdf" target="_blank" rel="noopener">Open resume ↗</a></div>
+          <div class="ctas"><a class="btn primary" href="Eric_Chan_Resume_Software.pdf" target="_blank" rel="noopener">Open résumé ↗</a></div>
         </article>
         <article class="resume">
           <span class="label">PDF · 1 page</span>
-          <h3>Video Game Designer resume</h3>
+          <h3>Video Game Designer résumé</h3>
           <p>Gameplay systems, character mechanics, storytelling, and player psychology.</p>
-          <div class="ctas"><a class="btn primary" href="Eric_Chan_Resume_Game.pdf" target="_blank" rel="noopener">Open resume ↗</a></div>
+          <div class="ctas"><a class="btn primary" href="Eric_Chan_Resume_Game.pdf" target="_blank" rel="noopener">Open résumé ↗</a></div>
         </article>
       </div>
     </div>
@@ -406,8 +406,8 @@ eric-chan <span class="c"># software engineer + game dev</span>
         <button class="btn" id="copy-email" type="button">Copy email</button>
       </div>
       <div class="socials">
-        <a href="https://github.com/chaneric022" target="_blank" rel="noopener">GitHub ↗</a>           <!-- EDIT -->
-        <a href="https://www.linkedin.com/in/erricchan" target="_blank" rel="noopener">LinkedIn ↗</a> <!-- EDIT -->
+        <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub ↗</a>           <!-- EDIT -->
+        <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn ↗</a> <!-- EDIT -->
       </div>
     </div>
   </section>
@@ -439,5 +439,7 @@ eric-chan <span class="c"># software engineer + game dev</span>
     });
   })();
 </script>
+<script src="chatbot-data.js"></script>
+<script src="chatbot.js"></script>
 </body>
 </html>
