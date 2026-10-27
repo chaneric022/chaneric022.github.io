@@ -30,7 +30,8 @@ window.ERIC_BOT = {
     "Tell me about his experience",
     "Where did he study?",
     "Can I see his resume?",
-    "How do I contact him?"
+    "How do I contact him?",
+     "Show me some of his projects."
   ],
 
   // Reply when a question doesn't match anything about Eric
@@ -144,7 +145,7 @@ window.ERIC_BOT = {
     {
       id: "projects",
       keywords: ["project", "projects", "portfolio", "built", "made", "work samples", "demo"],
-      answer: "His featured project is the gamification work at Skillwaze: 7 new features, designed and tested with several teams, that raised engagement by 18.5%. You'll find more in the Projects section of this page.",
+      answer: "You're actually speaking to one right now! But one of his featured project is the gamification work at Skillwaze: 7 new features, designed and tested with several teams, that raised engagement by 18.5%. You'll find more in the Projects section of this page.",
       links: [{ label: "See projects", href: "#projects" }]
     },
     {
