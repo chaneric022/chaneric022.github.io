@@ -133,6 +133,7 @@
     ".ebot-launch:hover{filter:brightness(1.08)}" +
     ".ebot-launch svg{width:18px;height:18px}" +
     ".ebot-panel{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:50;width:min(380px,calc(100vw - 32px - env(safe-area-inset-left,0px) - env(safe-area-inset-right,0px)));height:min(560px,calc(100vh - 120px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px)));display:flex;flex-direction:column;background:var(--surface,#1a1d28);color:var(--fg,#e6e8ef);border:1px solid var(--line,#2a2e3d);border-radius:14px;overflow:hidden;box-shadow:0 30px 70px -30px #000;font-family:var(--font-body,system-ui,sans-serif)}" +
+    ".ebot-panel[hidden]{display:none!important}" +
     ".ebot-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line,#2a2e3d)}" +
     ".ebot-head strong{font-family:var(--font-display,inherit);font-size:1.05rem}" +
     ".ebot-head small{display:block;color:var(--muted,#9095a8);font-family:var(--font-mono,monospace);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase}" +
