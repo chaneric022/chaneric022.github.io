@@ -76,13 +76,13 @@ window.ERIC_BOT = {
       id: "skills",
       keywords: ["skill", "skills", "good at", "abilities", "strengths", "expertise", "capable", "what can he do", "specialize"],
       answer: "On the software side, Eric works on AI applications, system design, full-stack development, SQL databases, data management, and testing and debugging. On the game side, he focuses on character gameplay, gameplay systems, storytelling, cross-platform development, and player psychology.",
-      more: "He's also detail-oriented and organized, and good at juggling several tasks while staying accurate. His tools include GitHub, Jira, and Microsoft Office.",
+      more: "He's also detail-oriented and organized, and good at juggling several tasks while staying accurate. His tools include Unity, Unreal Engine, Visual Studio, GitHub, Jira, and Microsoft Office.",
       links: [{ label: "See all skills", href: "#skills" }]
     },
     {
       id: "tools",
-      keywords: ["tools", "software he uses", "github", "jira", "microsoft office", "applications", "git"],
-      answer: "Eric uses GitHub for version control, Jira for tracking projects, and Microsoft Office for documentation and planning."
+      keywords: ["tools", "software he uses", "unity", "unreal", "unreal engine", "visual studio", "engine", "engines", "ide", "github", "jira", "microsoft office", "applications", "git"],
+      answer: "Eric builds games in Unity and Unreal Engine and writes code in Visual Studio. He also uses GitHub for version control, Jira for tracking projects, and Microsoft Office for documentation and planning."
     },
     {
       id: "ai",
